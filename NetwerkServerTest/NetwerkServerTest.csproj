@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiteNetLib, Version=0.8.385.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\netwerkTest\bin\Debug\LiteNetLib.dll</HintPath>
+      <HintPath>..\LiteNetLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
