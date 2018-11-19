@@ -9,9 +9,9 @@ namespace NetwerkServerTest
         public NetPeer peer;
         public bool isHost;
         public string playerName;
-        public float posX;
-        public float posY;
-        public float posZ;
+        public float posX = 0;
+        public float posY = 0;
+        public float posZ = 0;
 
         public Player(NetPeer peer, bool isHost, string playerName, float posX, float posY, float posZ)
         {

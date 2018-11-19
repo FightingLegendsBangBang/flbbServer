@@ -15,24 +15,10 @@
         <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="netwerkClientTest" t="IncludeRecursive">
-        <e p="ClientTest.cs" t="Include" />
-        <e p="Program.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-        <e p="bin" t="ExcludeRecursive" />
         <e p="netwerkClientTest.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="netwerkTest" t="IncludeRecursive">
-        <e p="HolePunchServerTest.cs" t="Include" />
-        <e p="Program.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
-        </e>
-        <e p="bin" t="ExcludeRecursive" />
         <e p="netwerkTest.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="netwerkTest.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

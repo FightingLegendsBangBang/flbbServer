@@ -56,6 +56,9 @@ namespace NetwerkServerTest
                 writer.Put(player.Key);
                 writer.Put(player.Value.playerName);
                 writer.Put(player.Value.isHost);
+                writer.Put(player.Value.posX);
+                writer.Put(player.Value.posY);
+                writer.Put(player.Value.posZ);
                 peer.Send(writer, DeliveryMethod.ReliableOrdered);
             }
         }
@@ -104,6 +107,9 @@ namespace NetwerkServerTest
                     writer.Put(fromPeer.Id);
                     writer.Put(pName);
                     writer.Put(isHost);
+                    writer.Put(0);
+                    writer.Put(0);
+                    writer.Put(0);
                     SendOthers(fromPeer, writer, DeliveryMethod.ReliableOrdered);
                     Console.WriteLine("registering player " + pName);
 
