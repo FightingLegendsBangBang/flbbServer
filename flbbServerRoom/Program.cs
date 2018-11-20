@@ -4,12 +4,12 @@ using System.Threading;
 using LiteNetLib;
 using LiteNetLib.Utils;
 
-namespace NetwerkServerTest
+namespace flbbServer
 {
     internal class Program
     {
         public static Dictionary<int, Player> Players = new Dictionary<int, Player>();
-
+        public static Dictionary<int, NetworkObject> NetworkObjects = new Dictionary<int, NetworkObject>();
         private static EventBasedNetListener listener;
         private static NetManager server;
 
@@ -53,14 +53,15 @@ namespace NetwerkServerTest
             foreach (var player in Players)
             {
                 writer.Reset();
-                writer.Put((ushort) 2);
-                writer.Put(player.Value.peer.Id);
-                writer.Put(player.Key);
-                writer.Put(player.Value.playerName);
-                writer.Put(player.Value.isHost);
-                writer.Put(player.Value.posX);
-                writer.Put(player.Value.posY);
-                writer.Put(player.Value.posZ);
+
+                player.Value.SendNewPlayerData(writer);
+                peer.Send(writer, DeliveryMethod.ReliableOrdered);
+            }
+
+            foreach (var networkObject in NetworkObjects)
+            {
+                writer.Reset();
+                networkObject.Value.SendObjectData(writer);
                 peer.Send(writer, DeliveryMethod.ReliableOrdered);
             }
         }
@@ -70,16 +71,32 @@ namespace NetwerkServerTest
             Console.WriteLine("peer disconnected: " + peer.EndPoint);
 
             List<int> playersToRemove = new List<int>();
+            List<int> objectsToRemove = new List<int>();
             foreach (var player in Players)
             {
                 if (player.Value.peer == peer)
+                {
                     playersToRemove.Add(player.Key);
+                    foreach (var networkObject in NetworkObjects)
+                    {
+                        if (networkObject.Value.playerId == player.Key)
+                        {
+                            objectsToRemove.Add(networkObject.Key);
+                        }
+                    }
+                }
             }
 
             foreach (var i in playersToRemove)
             {
                 Players.Remove(i);
             }
+
+            foreach (var i in objectsToRemove)
+            {
+                NetworkObjects.Remove(i);
+            }
+
 
             NetDataWriter writer = new NetDataWriter();
             writer.Put((ushort) 3);
@@ -108,31 +125,55 @@ namespace NetwerkServerTest
                     int playerId = dataReader.GetInt();
                     string pName = dataReader.GetString();
                     bool isHost = dataReader.GetBool();
-                    Players.Add(playerId,
-                        new Player(fromPeer, playerId,
-                            isHost,
-                            pName,
-                            0,
-                            0,
-                            0
-                        ));
-                    writer.Put((ushort) 2);
-                    writer.Put(fromPeer.Id);
-                    writer.Put(playerId);
-                    writer.Put(pName);
-                    writer.Put(isHost);
-                    writer.Put(0);
-                    writer.Put(0);
-                    writer.Put(0);
+                    var player = new Player(fromPeer, playerId, isHost, pName);
+                    Players.Add(playerId, player);
+                    player.SendNewPlayerData(writer);
                     SendOthers(fromPeer, writer, DeliveryMethod.ReliableOrdered);
                     Console.WriteLine("registering player " + pName + " pid " + playerId);
 
                     break;
-                case 101: //player update
-                    int pid = dataReader.GetInt();
-                    writer.Put((ushort) 101);
-                    Players[pid].ReadPlayerData(dataReader);
-                    Players[pid].WritePlayerData(writer);
+                case 101: //create networkObject
+                    var objectType = dataReader.GetInt();
+                    var objectId = rand.Next(1000000, 9999999);
+                    var oplayerId = dataReader.GetInt();
+                    var oposX = dataReader.GetFloat();
+                    var oposY = dataReader.GetFloat();
+                    var oposZ = dataReader.GetFloat();
+                    var orotX = dataReader.GetFloat();
+                    var orotY = dataReader.GetFloat();
+                    var orotZ = dataReader.GetFloat();
+                    var orotW = dataReader.GetFloat();
+
+                    var netObj = new NetworkObject(
+                        fromPeer,
+                        oplayerId,
+                        objectId,
+                        objectType,
+                        oposX,
+                        oposY,
+                        oposZ,
+                        orotX,
+                        orotY,
+                        orotZ,
+                        orotW);
+                    NetworkObjects.Add(objectId, netObj);
+
+                    netObj.SendObjectData(writer);
+                    server.SendToAll(writer, DeliveryMethod.ReliableOrdered);
+                    break;
+
+                case 102:
+                    var dobjectId = dataReader.GetInt();
+                    NetworkObjects.Remove(dobjectId);
+
+                    writer.Put((ushort) 102);
+                    writer.Put(dobjectId);
+                    server.SendToAll(writer, DeliveryMethod.ReliableOrdered);
+                    break;
+                case 103:
+                    var cobjectId = dataReader.GetInt();
+                    NetworkObjects[cobjectId].ReadData(dataReader);
+                    NetworkObjects[cobjectId].WriteData(writer);
                     SendOthers(fromPeer, writer, DeliveryMethod.Unreliable);
                     break;
             }

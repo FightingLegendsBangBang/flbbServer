@@ -4,21 +4,16 @@
     <e p="$USER_HOME$/.Rider2018.2/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_netwerkTest.2104022710.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="NetwerkServerTest" t="IncludeRecursive">
-        <e p="NetwerkServerTest.csproj" t="IncludeRecursive" />
+      <e p="flbbServerRoom" t="IncludeRecursive">
+        <e p="NetworkObject.cs" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="flbbServerRoom.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
-      </e>
-      <e p="netwerkClientTest" t="IncludeRecursive">
-        <e p="netwerkClientTest.csproj" t="IncludeRecursive" />
-      </e>
-      <e p="netwerkTest" t="IncludeRecursive">
-        <e p="netwerkTest.csproj" t="IncludeRecursive" />
       </e>
       <e p="netwerkTest.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

@@ -12,75 +12,103 @@
     <session id="24192819">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="3" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="4" />
+          <entry key="cs" value="11" />
+          <entry key="csproj" value="1" />
+          <entry key="sln" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="4" />
+          <entry key="C#" value="11" />
+          <entry key="Csproj" value="1" />
+          <entry key="Solution File" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="2211" />
+          <entry key="cs" value="3455" />
+          <entry key="sln" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="2211" />
+          <entry key="C#" value="3455" />
+          <entry key="Solution File" value="11" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NetwerkServerTest/Program.cs">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flbbServerRoom/Player.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+            <state relative-caret-position="32">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
               <folding>
-                <marker date="1542716546076" expanded="false" signature="6:113" ph="..." />
-                <marker date="1542716546076" expanded="true" signature="142:5255" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="171:5253" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="505:1179" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="1042:1141" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="1253:2208" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="1698:2198" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="2306:2933" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="2488:2616" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="2664:2727" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="3024:3217" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="3367:4946" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="3513:4901" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="5042:5247" ph="{...}" />
-                <marker date="1542716546076" expanded="true" signature="5118:5237" ph="{...}" />
+                <marker date="1542725119416" expanded="false" signature="6:55" ph="..." />
+                <marker date="1542725119416" expanded="true" signature="77:736" ph="{...}" />
+                <marker date="1542725119416" expanded="true" signature="103:734" ph="{...}" />
+                <marker date="1542725119416" expanded="true" signature="312:476" ph="{...}" />
+                <marker date="1542725119416" expanded="true" signature="537:728" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flbbServerRoom/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="149" column="9" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+              <folding>
+                <marker date="1542731067709" expanded="false" signature="6:113" ph="..." />
+                <marker date="1542731067709" expanded="true" signature="135:6911" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="164:6909" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="605:1279" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="1142:1241" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="1353:2238" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="1798:1982" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="2041:2228" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="2336:3477" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="2575:3041" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="2636:3027" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="2773:3009" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="2867:2987" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="3089:3152" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="3200:3270" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="3568:3761" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="3911:6602" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="4057:6557" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="6698:6903" ph="{...}" />
+                <marker date="1542731067709" expanded="true" signature="6774:6893" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetwerkServerTest/Player.cs">
+        <entry file="file://$PROJECT_DIR$/flbbServerRoom/NetworkObject.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+            <state relative-caret-position="358">
+              <caret line="39" selection-start-line="39" selection-end-line="40" />
               <folding>
-                <marker date="1542716148079" expanded="false" signature="6:55" ph="..." />
-                <marker date="1542716148079" expanded="true" signature="84:1105" ph="{...}" />
-                <marker date="1542716148079" expanded="true" signature="110:1103" ph="{...}" />
-                <marker date="1542716148079" expanded="true" signature="448:702" ph="{...}" />
-                <marker date="1542716148079" expanded="true" signature="760:894" ph="{...}" />
-                <marker date="1542716148079" expanded="true" signature="953:1097" ph="{...}" />
+                <marker date="1542728535132" expanded="true" signature="6:41" ph="..." />
+                <marker date="1542728535132" expanded="true" signature="63:2135" ph="{...}" />
+                <marker date="1542728535132" expanded="true" signature="96:2133" ph="{...}" />
+                <marker date="1542728535132" expanded="true" signature="594:972" ph="{...}" />
+                <marker date="1542728535132" expanded="true" signature="1025:1327" ph="{...}" />
+                <marker date="1542728535132" expanded="true" signature="1379:1665" ph="{...}" />
+                <marker date="1542728535132" expanded="true" signature="1723:2127" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -92,9 +120,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/NetwerkServerTest/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/NetwerkServerTest/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/netwerkClientTest/ClientTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/flbbServerRoom/NetworkObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/flbbServerRoom/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/flbbServerRoom/Player.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -102,6 +130,10 @@
         <option value="$PROJECT_DIR$/netwerkClientTest/ClientTest.cs" />
         <option value="$PROJECT_DIR$/NetwerkServerTest/Player.cs" />
         <option value="$PROJECT_DIR$/NetwerkServerTest/Program.cs" />
+        <option value="$PROJECT_DIR$/flbbServerRoom/Player.cs" />
+        <option value="$PROJECT_DIR$/netwerkTest.sln" />
+        <option value="$PROJECT_DIR$/flbbServerRoom/NetworkObject.cs" />
+        <option value="$PROJECT_DIR$/flbbServerRoom/Program.cs" />
       </list>
     </option>
   </component>
@@ -128,6 +160,11 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="netwerkTest" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="netwerkTest" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="flbbServerRoom" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -156,7 +193,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected=".NET Project.NetwerkServerTest">
+  <component name="RunManager" selected=".NET Project.flbbServerRoom">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -193,6 +230,24 @@
         <option name="Build" enabled="true" />
       </method>
     </configuration>
+    <configuration name="flbbServerRoom" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/flbbServerRoom/bin/Debug/flbbServer.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flbbServerRoom/bin/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/flbbServerRoom/flbbServerRoom.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.1" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="netwerkClientTest" type="DotNetProject" factoryName=".NET Project" temporary="true">
       <option name="EXE_PATH" value="$PROJECT_DIR$/netwerkClientTest/bin/Debug/netwerkClientTest.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -215,9 +270,11 @@
       <item itemvalue=".NET Project.Default" />
       <item itemvalue=".NET Project.netwerkClientTest" />
       <item itemvalue=".NET Project.NetwerkServerTest" />
+      <item itemvalue=".NET Project.flbbServerRoom" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue=".NET Project.flbbServerRoom" />
         <item itemvalue=".NET Project.NetwerkServerTest" />
         <item itemvalue=".NET Project.netwerkClientTest" />
       </list>
@@ -238,12 +295,13 @@
       <workItem from="1542574516528" duration="1844000" />
       <workItem from="1542620803401" duration="1343000" />
       <workItem from="1542641538118" duration="4184000" />
-      <workItem from="1542711539928" duration="3892000" />
+      <workItem from="1542711539928" duration="5965000" />
+      <workItem from="1542725955153" duration="8696000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31450000" />
+    <option name="totallyTimeSpent" value="42219000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -257,12 +315,12 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1035" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26307365" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26627535" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" x="2948" y="492" width="896" height="353" id="Run" order="2" type="FLOATING" visible="true" weight="0.3289183" />
+      <window_info active="true" anchor="bottom" x="2956" y="479" width="888" height="366" id="Run" order="2" type="FLOATING" visible="true" weight="0.3289183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -307,48 +365,72 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/netwerkClientTest/ClientTest.cs">
+    <entry file="file://$PROJECT_DIR$/netwerkClientTest/ClientTest.cs" />
+    <entry file="file://$PROJECT_DIR$/NetwerkServerTest/Player.cs" />
+    <entry file="file://$PROJECT_DIR$/NetwerkServerTest/NetwerkServerTest.csproj" />
+    <entry file="file://$PROJECT_DIR$/NetwerkServerTest/Program.cs" />
+    <entry file="file://$PROJECT_DIR$/netwerkTest.sln">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="32">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NetwerkServerTest/Player.cs">
+    <entry file="file://$PROJECT_DIR$/flbbServerRoom/Player.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        <state relative-caret-position="32">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
           <folding>
-            <marker date="1542716148079" expanded="false" signature="6:55" ph="..." />
-            <marker date="1542716148079" expanded="true" signature="84:1105" ph="{...}" />
-            <marker date="1542716148079" expanded="true" signature="110:1103" ph="{...}" />
-            <marker date="1542716148079" expanded="true" signature="448:702" ph="{...}" />
-            <marker date="1542716148079" expanded="true" signature="760:894" ph="{...}" />
-            <marker date="1542716148079" expanded="true" signature="953:1097" ph="{...}" />
+            <marker date="1542725119416" expanded="false" signature="6:55" ph="..." />
+            <marker date="1542725119416" expanded="true" signature="77:736" ph="{...}" />
+            <marker date="1542725119416" expanded="true" signature="103:734" ph="{...}" />
+            <marker date="1542725119416" expanded="true" signature="312:476" ph="{...}" />
+            <marker date="1542725119416" expanded="true" signature="537:728" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NetwerkServerTest/Program.cs">
+    <entry file="file://$PROJECT_DIR$/flbbServerRoom/NetworkObject.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+        <state relative-caret-position="358">
+          <caret line="39" selection-start-line="39" selection-end-line="40" />
           <folding>
-            <marker date="1542716546076" expanded="false" signature="6:113" ph="..." />
-            <marker date="1542716546076" expanded="true" signature="142:5255" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="171:5253" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="505:1179" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="1042:1141" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="1253:2208" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="1698:2198" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="2306:2933" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="2488:2616" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="2664:2727" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="3024:3217" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="3367:4946" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="3513:4901" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="5042:5247" ph="{...}" />
-            <marker date="1542716546076" expanded="true" signature="5118:5237" ph="{...}" />
+            <marker date="1542728535132" expanded="true" signature="6:41" ph="..." />
+            <marker date="1542728535132" expanded="true" signature="63:2135" ph="{...}" />
+            <marker date="1542728535132" expanded="true" signature="96:2133" ph="{...}" />
+            <marker date="1542728535132" expanded="true" signature="594:972" ph="{...}" />
+            <marker date="1542728535132" expanded="true" signature="1025:1327" ph="{...}" />
+            <marker date="1542728535132" expanded="true" signature="1379:1665" ph="{...}" />
+            <marker date="1542728535132" expanded="true" signature="1723:2127" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flbbServerRoom/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="149" column="9" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+          <folding>
+            <marker date="1542731067709" expanded="false" signature="6:113" ph="..." />
+            <marker date="1542731067709" expanded="true" signature="135:6911" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="164:6909" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="605:1279" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="1142:1241" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="1353:2238" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="1798:1982" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="2041:2228" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="2336:3477" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="2575:3041" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="2636:3027" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="2773:3009" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="2867:2987" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="3089:3152" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="3200:3270" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="3568:3761" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="3911:6602" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="4057:6557" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="6698:6903" ph="{...}" />
+            <marker date="1542731067709" expanded="true" signature="6774:6893" ph="{...}" />
           </folding>
         </state>
       </provider>
