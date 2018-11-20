@@ -7,15 +7,17 @@ namespace NetwerkServerTest
     public class Player
     {
         public NetPeer peer;
+        public int playerId;
         public bool isHost;
         public string playerName;
         public float posX = 0;
         public float posY = 0;
         public float posZ = 0;
 
-        public Player(NetPeer peer, bool isHost, string playerName, float posX, float posY, float posZ)
+        public Player(NetPeer peer, int playerId, bool isHost, string playerName, float posX, float posY, float posZ)
         {
             this.peer = peer;
+            this.playerId = playerId;
             this.isHost = isHost;
             this.playerName = playerName;
             this.posX = posX;
@@ -25,7 +27,6 @@ namespace NetwerkServerTest
 
         public void ReadPlayerData(NetDataReader reader)
         {
-            var i = reader.GetInt();
             posX = reader.GetFloat();
             posY = reader.GetFloat();
             posZ = reader.GetFloat();
@@ -33,7 +34,7 @@ namespace NetwerkServerTest
 
         public void WritePlayerData(NetDataWriter writer)
         {
-            writer.Put(peer.Id);
+            writer.Put(playerId);
             writer.Put(posX);
             writer.Put(posY);
             writer.Put(posZ);

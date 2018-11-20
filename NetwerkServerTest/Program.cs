@@ -46,6 +46,7 @@ namespace NetwerkServerTest
             NetDataWriter writer = new NetDataWriter();
             writer.Put((ushort) 1);
             writer.Put(peer.Id);
+            writer.Put(rand.Next(1000000, 9999999));
             writer.Put(peer == server.FirstPeer);
             peer.Send(writer, DeliveryMethod.ReliableOrdered);
             writer.Reset();
@@ -53,6 +54,7 @@ namespace NetwerkServerTest
             {
                 writer.Reset();
                 writer.Put((ushort) 2);
+                writer.Put(player.Value.peer.Id);
                 writer.Put(player.Key);
                 writer.Put(player.Value.playerName);
                 writer.Put(player.Value.isHost);
@@ -67,7 +69,17 @@ namespace NetwerkServerTest
         {
             Console.WriteLine("peer disconnected: " + peer.EndPoint);
 
-            Players.Remove(peer.Id);
+            List<int> playersToRemove = new List<int>();
+            foreach (var player in Players)
+            {
+                if (player.Value.peer == peer)
+                    playersToRemove.Add(player.Key);
+            }
+
+            foreach (var i in playersToRemove)
+            {
+                Players.Remove(i);
+            }
 
             NetDataWriter writer = new NetDataWriter();
             writer.Put((ushort) 3);
@@ -93,10 +105,11 @@ namespace NetwerkServerTest
             switch (msgid)
             {
                 case 1:
+                    int playerId = dataReader.GetInt();
                     string pName = dataReader.GetString();
                     bool isHost = dataReader.GetBool();
-                    Players.Add(fromPeer.Id,
-                        new Player(fromPeer,
+                    Players.Add(playerId,
+                        new Player(fromPeer, playerId,
                             isHost,
                             pName,
                             0,
@@ -105,19 +118,21 @@ namespace NetwerkServerTest
                         ));
                     writer.Put((ushort) 2);
                     writer.Put(fromPeer.Id);
+                    writer.Put(playerId);
                     writer.Put(pName);
                     writer.Put(isHost);
                     writer.Put(0);
                     writer.Put(0);
                     writer.Put(0);
                     SendOthers(fromPeer, writer, DeliveryMethod.ReliableOrdered);
-                    Console.WriteLine("registering player " + pName);
+                    Console.WriteLine("registering player " + pName + " pid " + playerId);
 
                     break;
                 case 101: //player update
+                    int pid = dataReader.GetInt();
                     writer.Put((ushort) 101);
-                    Players[fromPeer.Id].ReadPlayerData(dataReader);
-                    Players[fromPeer.Id].WritePlayerData(writer);
+                    Players[pid].ReadPlayerData(dataReader);
+                    Players[pid].WritePlayerData(writer);
                     SendOthers(fromPeer, writer, DeliveryMethod.Unreliable);
                     break;
             }
