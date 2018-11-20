@@ -172,9 +172,13 @@ namespace flbbServer
                     break;
                 case 103:
                     var cobjectId = dataReader.GetInt();
-                    NetworkObjects[cobjectId].ReadData(dataReader);
-                    NetworkObjects[cobjectId].WriteData(writer);
-                    SendOthers(fromPeer, writer, DeliveryMethod.Unreliable);
+                    if (NetworkObjects.ContainsKey(cobjectId))
+                    {
+                        NetworkObjects[cobjectId].ReadData(dataReader);
+                        NetworkObjects[cobjectId].WriteData(writer);
+                        SendOthers(fromPeer, writer, DeliveryMethod.Unreliable);
+                    }
+
                     break;
             }
 
