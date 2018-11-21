@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Threading;
 using LiteNetLib;
@@ -175,7 +176,22 @@ namespace flbbServer
                 case 201:
                     byte[] data = new byte[dataReader.UserDataSize];
                     Array.Copy(dataReader.RawData, dataReader.UserDataOffset, data, 0, dataReader.UserDataSize);
-                    server.SendToAll(data, DeliveryMethod.ReliableUnordered);
+                    var target = dataReader.GetByte();
+                    var rpcName = dataReader.GetString();
+                    var rpcObjectId = dataReader.GetInt();
+                    switch (target)
+                    {
+                        case 0:
+                            NetworkObjects[rpcObjectId].peer.Send(data, DeliveryMethod.ReliableUnordered);
+                            break;
+                        case 1:
+                            SendOthers(NetworkObjects[rpcObjectId].peer, data, DeliveryMethod.ReliableUnordered);
+                            break;
+                        case 2:
+                            server.SendToAll(data, DeliveryMethod.ReliableUnordered);
+                            break;
+                    }
+
                     break;
             }
 
@@ -189,6 +205,16 @@ namespace flbbServer
                 if (cpeer == netPeer) continue;
 
                 netPeer.Send(writer, dm);
+            }
+        }
+
+        private static void SendOthers(NetPeer cpeer, byte[] data, DeliveryMethod dm)
+        {
+            foreach (NetPeer netPeer in server.ConnectedPeerList)
+            {
+                if (cpeer == netPeer) continue;
+
+                netPeer.Send(data, dm);
             }
         }
     }
