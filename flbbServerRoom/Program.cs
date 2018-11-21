@@ -122,9 +122,9 @@ namespace flbbServer
             switch (msgid)
             {
                 case 1:
-                    int playerId = dataReader.GetInt();
-                    string pName = dataReader.GetString();
-                    bool isHost = dataReader.GetBool();
+                    var playerId = dataReader.GetInt();
+                    var pName = dataReader.GetString();
+                    var isHost = dataReader.GetBool();
                     var player = new Player(fromPeer, playerId, isHost, pName);
                     Players.Add(playerId, player);
                     player.SendNewPlayerData(writer);
@@ -133,29 +133,21 @@ namespace flbbServer
 
                     break;
                 case 101: //create networkObject
-                    var objectType = dataReader.GetInt();
+
                     var objectId = rand.Next(1000000, 9999999);
-                    var oplayerId = dataReader.GetInt();
-                    var oposX = dataReader.GetFloat();
-                    var oposY = dataReader.GetFloat();
-                    var oposZ = dataReader.GetFloat();
-                    var orotX = dataReader.GetFloat();
-                    var orotY = dataReader.GetFloat();
-                    var orotZ = dataReader.GetFloat();
-                    var orotW = dataReader.GetFloat();
 
                     var netObj = new NetworkObject(
                         fromPeer,
-                        oplayerId,
+                        dataReader.GetInt(),
                         objectId,
-                        objectType,
-                        oposX,
-                        oposY,
-                        oposZ,
-                        orotX,
-                        orotY,
-                        orotZ,
-                        orotW);
+                        dataReader.GetInt(),
+                        dataReader.GetFloat(),
+                        dataReader.GetFloat(),
+                        dataReader.GetFloat(),
+                        dataReader.GetFloat(),
+                        dataReader.GetFloat(),
+                        dataReader.GetFloat(),
+                        dataReader.GetFloat());
                     NetworkObjects.Add(objectId, netObj);
 
                     netObj.SendObjectData(writer);
@@ -163,22 +155,27 @@ namespace flbbServer
                     break;
 
                 case 102:
-                    var dobjectId = dataReader.GetInt();
-                    NetworkObjects.Remove(dobjectId);
+                    var objectToDelete = dataReader.GetInt();
+                    NetworkObjects.Remove(objectToDelete);
 
                     writer.Put((ushort) 102);
-                    writer.Put(dobjectId);
+                    writer.Put(objectToDelete);
                     server.SendToAll(writer, DeliveryMethod.ReliableOrdered);
                     break;
                 case 103:
-                    var cobjectId = dataReader.GetInt();
-                    if (NetworkObjects.ContainsKey(cobjectId))
+                    var objectToUpdate = dataReader.GetInt();
+                    if (NetworkObjects.ContainsKey(objectToUpdate))
                     {
-                        NetworkObjects[cobjectId].ReadData(dataReader);
-                        NetworkObjects[cobjectId].WriteData(writer);
+                        NetworkObjects[objectToUpdate].ReadData(dataReader);
+                        NetworkObjects[objectToUpdate].WriteData(writer);
                         SendOthers(fromPeer, writer, DeliveryMethod.Unreliable);
                     }
 
+                    break;
+                case 201:
+                    byte[] data = new byte[dataReader.UserDataSize];
+                    Array.Copy(dataReader.RawData, dataReader.UserDataOffset, data, 0, dataReader.UserDataSize);
+                    server.SendToAll(data, DeliveryMethod.ReliableUnordered);
                     break;
             }
 

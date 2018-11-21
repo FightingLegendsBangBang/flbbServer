@@ -18,7 +18,7 @@ namespace flbbServer
         public float rotW;
 
 
-        public NetworkObject(NetPeer peer, int playerId, int objectId, int objectType, float posX, float posY,
+        public NetworkObject(NetPeer peer, int objectType, int objectId, int playerId, float posX, float posY,
             float posZ, float rotX, float rotY, float rotZ, float rotW)
         {
             this.peer = peer;
@@ -60,7 +60,7 @@ namespace flbbServer
 
         public void SendObjectData(NetDataWriter writer)
         {
-            writer.Put((ushort)101);
+            writer.Put((ushort) 101);
             writer.Put(objectType);
             writer.Put(objectId);
             writer.Put(playerId);
