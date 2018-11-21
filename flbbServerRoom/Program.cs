@@ -47,7 +47,13 @@ namespace flbbServer
             NetDataWriter writer = new NetDataWriter();
             writer.Put((ushort) 1);
             writer.Put(peer.Id);
-            writer.Put(rand.Next(1000000, 9999999));
+            int newPlayerId;
+            do
+            {
+                newPlayerId = rand.Next(1000000, 9999999);
+            } while (!Players.ContainsKey(newPlayerId));
+
+            writer.Put(newPlayerId);
             writer.Put(peer == server.FirstPeer);
             peer.Send(writer, DeliveryMethod.ReliableOrdered);
             writer.Reset();
@@ -135,7 +141,12 @@ namespace flbbServer
                     break;
                 case 101: //create networkObject
 
-                    var objectId = rand.Next(1000000, 9999999);
+                    int objectId;
+
+                    do
+                    {
+                        objectId = rand.Next(1000000, 9999999);
+                    } while (!NetworkObjects.ContainsKey(objectId));
 
                     var netObj = new NetworkObject(
                         fromPeer,
