@@ -35,7 +35,7 @@ namespace flbbServer
             while (!quit)
             {
                 server.PollEvents();
-                Thread.Sleep(10);
+                Thread.Sleep(20);
             }
 
             server.Stop();
@@ -51,7 +51,7 @@ namespace flbbServer
             do
             {
                 newPlayerId = rand.Next(1000000, 9999999);
-            } while (!Players.ContainsKey(newPlayerId));
+            } while (Players.ContainsKey(newPlayerId));
 
             writer.Put(newPlayerId);
             writer.Put(peer == server.FirstPeer);
@@ -146,7 +146,7 @@ namespace flbbServer
                     do
                     {
                         objectId = rand.Next(1000000, 9999999);
-                    } while (!NetworkObjects.ContainsKey(objectId));
+                    } while (NetworkObjects.ContainsKey(objectId));
 
                     var netObj = new NetworkObject(
                         fromPeer,

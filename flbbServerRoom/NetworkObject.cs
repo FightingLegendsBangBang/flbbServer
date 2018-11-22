@@ -16,6 +16,7 @@ namespace flbbServer
         public float rotY;
         public float rotZ;
         public float rotW;
+        private byte[] extraData = new byte[0];
 
 
         public NetworkObject(NetPeer peer, int objectType, int objectId, int playerId, float posX, float posY,
@@ -45,6 +46,8 @@ namespace flbbServer
             writer.Put(rotY);
             writer.Put(rotZ);
             writer.Put(rotW);
+            if (extraData.Length > 0)
+                writer.Put(extraData);
         }
 
         public void ReadData(NetDataReader reader)
@@ -56,6 +59,10 @@ namespace flbbServer
             rotY = reader.GetFloat();
             rotZ = reader.GetFloat();
             rotW = reader.GetFloat();
+            if (!reader.EndOfData)
+            {
+                extraData = reader.GetRemainingBytes();
+            }
         }
 
         public void SendObjectData(NetDataWriter writer)
