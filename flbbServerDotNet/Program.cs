@@ -1,14 +1,12 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Threading;
-using flbbServerDotNet;
 using LiteNetLib;
 using LiteNetLib.Utils;
 
-namespace flbbServer
+namespace flbbServerDotNet
 {
-    internal class Program
+    class Program
     {
         public static Dictionary<int, Player> Players = new Dictionary<int, Player>();
         public static Dictionary<int, NetworkObject> NetworkObjects = new Dictionary<int, NetworkObject>();
@@ -32,7 +30,9 @@ namespace flbbServer
             listener.PeerDisconnectedEvent += OnListenerOnPeerDisconnectedEvent;
             listener.PeerConnectedEvent += OnListenerOnPeerConnectedEvent;
             listener.NetworkReceiveEvent += OnListenerOnNetworkReceiveEvent;
-            
+
+            Console.WriteLine(Environment.ProcessorCount);
+
             while (!quit)
             {
                 server.PollEvents();
@@ -40,7 +40,6 @@ namespace flbbServer
             }
 
             server.Stop();
-
         }
 
         private static void OnListenerOnPeerConnectedEvent(NetPeer peer)
@@ -57,7 +56,7 @@ namespace flbbServer
             } while (Players.ContainsKey(newPlayerId));
 
             writer.Put(newPlayerId);
-            writer.Put(peer == server.FirstPeer);
+            writer.Put(Players.Count == 0);
             peer.Send(writer, DeliveryMethod.ReliableOrdered);
             writer.Reset();
             foreach (var player in Players)
@@ -146,6 +145,12 @@ namespace flbbServer
                     Console.WriteLine("registering player " + pName + " pid " + playerId);
 
                     break;
+                case 4:
+                    var playerUpdateId = dataReader.GetInt();
+                    Players[playerUpdateId].ReadPlayerUpdate(dataReader);
+                    Players[playerUpdateId].SendNewPlayerUpdate(writer);
+                    server.SendToAll(writer, DeliveryMethod.ReliableOrdered);
+                    break;
                 case 101: //create networkObject
 
                     int objectId;
@@ -210,6 +215,14 @@ namespace flbbServer
                             break;
                     }
 
+                    break;
+
+                case 301:
+                    var levelId = dataReader.GetInt();
+                    writer.Put((ushort) 301);
+                    writer.Put(levelId);
+
+                    server.SendToAll(writer, DeliveryMethod.ReliableOrdered);
                     break;
             }
 

@@ -41,5 +41,27 @@ namespace flbbServerDotNet
             writer.Put(colorG);
             writer.Put(colorB);
         }
+
+        public void ReadPlayerUpdate(NetDataReader reader)
+        {
+            isHost = reader.GetBool();
+            playerName = reader.GetString();
+            characterId = reader.GetInt();
+            colorR = reader.GetFloat();
+            colorG = reader.GetFloat();
+            colorB = reader.GetFloat();
+        }
+
+        public void SendNewPlayerUpdate(NetDataWriter writer)
+        {
+            writer.Put((ushort) 4);
+            writer.Put(playerId);
+            writer.Put(isHost);
+            writer.Put(playerName);
+            writer.Put(characterId);
+            writer.Put(colorR);
+            writer.Put(colorG);
+            writer.Put(colorB);
+        }
     }
 }
