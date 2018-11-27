@@ -223,6 +223,8 @@ namespace flbbServerDotNet
                     writer.Put(levelId);
 
                     server.SendToAll(writer, DeliveryMethod.ReliableOrdered);
+
+                    NetworkObjects.Clear();
                     break;
             }
 
