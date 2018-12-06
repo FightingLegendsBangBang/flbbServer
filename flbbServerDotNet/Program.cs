@@ -36,7 +36,7 @@ namespace flbbServerDotNet
             while (!quit)
             {
                 server.PollEvents();
-                Thread.Sleep(20);
+                Thread.Sleep(10);
             }
 
             server.Stop();
