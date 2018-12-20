@@ -77,7 +77,7 @@ namespace flbbServerDotNet
 
         private static void OnListenerOnPeerDisconnectedEvent(NetPeer peer, DisconnectInfo info)
         {
-            Console.WriteLine("peer disconnected: " + peer.EndPoint);
+            Console.WriteLine($"peer disconnected: {peer.EndPoint}");
 
             List<int> playersToRemove = new List<int>();
             List<int> objectsToRemove = new List<int>();
